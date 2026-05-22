@@ -1,4 +1,4 @@
-﻿@inject SinaisPeloMundo.Helper.ISessao Sessao
+@inject SinaisPeloMundo.Helper.ISessao Sessao
 @model ClienteModel
 @{
     ViewData["Title"] = "Alterar pessoais";
@@ -31,7 +31,8 @@
 
                 <div class="campo-dados">
                     <label for="nome">Nome</label>
-                    <input id="nome" asp-for="Nome" type="text">
+                <input id="nome" asp-for="Nome" type="text">
+                <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
 
                 <div class="campo-dados">
@@ -42,7 +43,8 @@
 
                 <div class="campo-dados">
                     <label for="senha">Senha</label>
-                    <input id="senha" asp-for="Senha" type="password">
+                <input id="senha" asp-for="Senha" type="password">
+                <span asp-validation-for="Senha" class="text-danger"></span>
                 </div>
 
                 <div class="campo-dados">
@@ -53,17 +55,20 @@
 
                 <div class="campo-dados">
                     <label for="nascimento">Data de Nascimento</label>
-                    <input id="nascimento" asp-for="DtNascimento" type="date">
+                <input id="nascimento" asp-for="DtNascimento" type="date">
+                <span asp-validation-for="DtNascimento" class="text-danger"></span>
                 </div>
 
                 <div class="campo-dados">
                     <label for="telefone">Telefone</label>
-                    <input id="telefone" asp-for="Telefone" type="tel">
+                <input id="telefone" asp-for="Telefone" type="tel">
+                <span asp-validation-for="Telefone" class="text-danger"></span>
                 </div>
 
                 <div id="campo-full-width" class="campo-dados">
                     <label for="endereco">Endereço</label>
-                    <input id="endereco" asp-for="Endereco" type="text">
+                <input id="endereco" asp-for="Endereco" type="text">
+                <span asp-validation-for="Endereco" class="text-danger"></span>
                 </div>
 
                 <div class="botoes-dados">
