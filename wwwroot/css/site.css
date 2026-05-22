@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 a {
@@ -16,6 +16,9 @@ ul {
 
 button {
     border: none;
+}
+h1 {
+    font-weight: bold;
 }
 
 /* Tela de cadastro */
@@ -39,6 +42,9 @@ button {
     grid-template-columns: 1fr;
     overflow: hidden;
     box-shadow: 0 10px 25px #00000018;
+}
+.container-cadastro h2{
+    font-weight: bold;
 }
 
 .lado-esquerdo {
@@ -67,7 +73,7 @@ button {
 }
 
 .lado-esquerdo p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 30px;
 }
 
@@ -213,6 +219,9 @@ button {
 .dados-pessoais {
     font-weight: bold;
 }
+.dados-pessoais span {
+    font-weight: normal;
+}
 
     .dados-pessoais h1 {
         font-size: 28px;
@@ -230,7 +239,8 @@ button {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    background-color: #f0f0f0;
+    background-color: white;
+    border: 2px solid #bdbdbd;
     padding: 15px;
     border-radius: 15px;
 }
@@ -284,6 +294,7 @@ button {
     }
 
 #botao-excluir {
+    background-color: white;
     border-color: #ff0000;
     color: #ff0000;
     font-weight: bold;
@@ -297,6 +308,7 @@ button {
 /* Tela de alteração de dados pessoais */
 
 #botao-alterar {
+    background-color: white;
     border-color: #2DC75C;
     color: #2DC75C;
     font-weight: bold;
@@ -332,7 +344,8 @@ button {
 }
 
 .card-historico {
-    background-color: #f0f0f0;
+    background-color: white;
+    border: 2px solid #bdbdbd;
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -351,6 +364,8 @@ button {
 
     .info-historico h2 {
         margin-bottom: 35px;
+        color: #1B3B88;
+        font-weight: bold;
     }
 
 .grid-info {
@@ -375,6 +390,7 @@ button {
     margin-top: 30px;
     text-decoration: underline;
     cursor: pointer;
+    background-color: white;
 }
 
     .detalhes:hover {
@@ -403,23 +419,25 @@ button {
 }
 
 .botao-gerar {
-    background-color: #ffffff;
-    color: #0b8d34;
+    background-color: #1cad39;
+    color: #ffffff;
+    font-weight: bold;
 }
 
     .botao-gerar:hover {
-        background-color: #2DC75C;
-        color: #ffffff;
+        border-color: #26a33f;
         border-color: #209543
     }
     .botao-gerar a:hover {
         color: #ffffff;
     }
 
+
 .botao-cancelar {
-    background-color: #ffffff;
-    color: #bd0a0a;
+    background-color: #ff0000;
+    color: white;
     text-align: center;
+    font-weight: bold;
 }
 
     .botao-cancelar:hover {
@@ -997,6 +1015,8 @@ button {
     .item-info-header h2 {
         margin-top: 10px;
         margin-bottom: 15px;
+        color: #1B3B88;
+        font-weight: bold;
     }
 
 .servico-item {
@@ -1175,7 +1195,7 @@ button {
 }
 
 .botao-novo {
-    background-color: #1B3B88;
+    background-color: #1cad39;
     color: #ffffff;
     border: 1px solid #ccc;
     padding: 10px 20px;
@@ -1191,7 +1211,7 @@ button {
 }
 
     .botao-novo:hover {
-        background-color: #102657;
+        background-color: #249c3c;
     }
 
 .tabela-cabecalho {
@@ -1286,6 +1306,7 @@ button {
 
 .rotulo-catalogo {
     margin-left: 5px;
+    font-weight: bold;
 }
 
 .botoes-catalogo {
@@ -1297,13 +1318,13 @@ button {
 }
 
 .btn-catalogo-salvar {
-    background-color: #ffffff;
-    color: #4de068;
+    background-color: #1cad39;
+    color: #ffffff;
+    font-weight: bold;
 }
 
     .btn-catalogo-salvar:hover {
-        background-color: #4de068;
-        color: #ffffff;
+        border-color: #26a33f;
     }
 
 /* tela de catálogo */
