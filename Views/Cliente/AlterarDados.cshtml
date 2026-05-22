@@ -1,0 +1,74 @@
+﻿@inject SinaisPeloMundo.Helper.ISessao Sessao
+@model ClienteModel
+@{
+    ViewData["Title"] = "Alterar pessoais";
+}
+    <main class="container-dados">
+
+        <aside class="sidebar-dados-pessoais">
+            <nav class="sidebar-dados">
+                <nav class="sidebar-dados">
+                <a asp-controller="Home" asp-action="Index">&lt; Voltar</a>
+                <a asp-controller="Cliente" asp-action="DadosPessoais">Dados Pessoais</a>
+                <a asp-controller="Cliente" asp-action="HistoricoPedidos">Histórico</a>
+                @if (Model.Admin)
+                {
+                    <a asp-controller="Admin" asp-action="ListaPacotes">
+                        Painel Administrativo
+                    </a>
+                }
+                <a asp-controller="Login" asp-action="Sair">Sair</a>
+            </nav>
+            </nav>
+        </aside>
+
+        <section class="dados-pessoais">
+            <h1>Dados Pessoais</h1>
+            <p>Realize a alteração de seus dados</p>
+
+            <form class="form-dados" asp-controller="Cliente" asp-action="AlterarDados" method="post">
+                <input type="hidden" asp-for="ClienteId"/>
+
+                <div class="campo-dados">
+                    <label for="nome">Nome</label>
+                    <input id="nome" asp-for="Nome" type="text">
+                </div>
+
+                <div class="campo-dados">
+                    <label for="email">Email</label>
+                    <input id="email" asp-for="Email" type="email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="campo-dados">
+                    <label for="senha">Senha</label>
+                    <input id="senha" asp-for="Senha" type="password">
+                </div>
+
+                <div class="campo-dados">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" asp-for="Cpf" type="text">
+                    <span asp-validation-for="Cpf" class="text-danger"></span>
+                </div>
+
+                <div class="campo-dados">
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input id="nascimento" asp-for="DtNascimento" type="date">
+                </div>
+
+                <div class="campo-dados">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" asp-for="Telefone" type="tel">
+                </div>
+
+                <div id="campo-full-width" class="campo-dados">
+                    <label for="endereco">Endereço</label>
+                    <input id="endereco" asp-for="Endereco" type="text">
+                </div>
+
+                <div class="botoes-dados">
+                    <button class="botao-tipo2" id="botao-alterar" type="submit">Salvar alterações</button>
+                </div>
+            </form>
+        </section>
+    </main>

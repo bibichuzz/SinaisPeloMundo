@@ -1,0 +1,64 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+    <div class="cadastro-login">
+    <main class="container-cadastro">
+        <section class="lado-esquerdo">
+            <div class="logo">
+                <img class="logo-tipo" src="https://github.com/guimendz/Site-de-Turismo/blob/main/Assets/img/Logo-tipo.jpg?raw=true" alt="Logo">
+            </div>
+            
+            <h2>Bem vindo de volta</h2>
+            <p>Acesse sua conta agora mesmo</p>
+            <a id="botao-entrar" class="botao-tipo1 btn-azul" asp-controller="Login" asp-action="Login">Entrar</a>
+        </section>
+
+        <section class="lado-direito">
+            <h2>Crie sua conta</h2>
+            
+            <form class="form-cadastro" asp-controller="Cliente" asp-action="Criar" method="post">
+                <div class="campo-form">
+                    <label class="rotulo-form" for="nome">Nome</label>
+                    <input id="nome" asp-for="Nome" type="text" placeholder="Nome" required>
+                </div>
+
+                <div class="campo-form">
+                    <label class="rotulo-form" for="email">Email</label>
+                    <input id="email" asp-for="Email" type="email" placeholder="Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="campo-form">
+                    <label class="rotulo-form" for="senha">Senha</label>
+                    <input id="senha" asp-for="Senha" type="password" placeholder="Senha" required>
+                </div>
+
+                <div class="campo-form">
+                    <label class="rotulo-form" for="cpf">CPF</label>
+                    <input id="cpf" asp-for="Cpf" type="text" placeholder="CPF" required>
+                    <span asp-validation-for="Cpf" class="text-danger"></span>
+                </div>
+
+                <div class="campo-form">
+                    <label class="rotulo-form" for="nascimento">Data de Nascimento</label>
+                    <input id="nascimento" asp-for="DtNascimento" type="date" placeholder="Data de Nascimento" required>
+                </div>
+
+                <div class="campo-form">
+                    <label class="rotulo-form" for="telefone">Telefone</label>
+                    <input id="telefone" asp-for="Telefone" type="tel" placeholder="Telefone" required>
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>
+
+                 <div class="campo-form">
+                    <label class="rotulo-form" for="endereco">Endereço</label>
+                    <input id="endereco" asp-for="Endereco" type="text" placeholder="Endereço" required>
+                </div>
+
+                <button class="botao-tipo1 btn-azul" type="submit">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+    </div>
