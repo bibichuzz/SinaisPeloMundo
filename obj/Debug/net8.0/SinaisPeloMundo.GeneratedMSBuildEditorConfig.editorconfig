@@ -1,0 +1,135 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SinaisPeloMundo
+build_property.RootNamespace = SinaisPeloMundo
+build_property.ProjectDir = C:\Users\Bianca\Documents\SinaisPeloMundo\SinaisPeloMundo\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Bianca\Documents\SinaisPeloMundo\SinaisPeloMundo
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/CadastroHoteis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FkYXN0cm9Ib3RlaXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/CadastroInterprete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FkYXN0cm9JbnRlcnByZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/CadastroPacotes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FkYXN0cm9QYWNvdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/CadastroPassagens.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FkYXN0cm9QYXNzYWdlbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/EditarHotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdGFySG90ZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/EditarInterprete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdGFySW50ZXJwcmV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/EditarPacote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdGFyUGFjb3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/EditarPassagem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdGFyUGFzc2FnZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/ListaHoteis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGFIb3RlaXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/ListaInterprete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGFJbnRlcnByZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/ListaPacotes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGFQYWNvdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Admin/ListaPassagens.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGFQYXNzYWdlbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Cliente/AlterarDados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBbHRlcmFyRGFkb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Cliente/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Cliente/DadosPessoais.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEYWRvc1Blc3NvYWlzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Cliente/HistoricoPedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxIaXN0b3JpY29QZWRpZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Home/Catalogo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRhbG9nby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Home/IndexErro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEVycm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Pacote/DetalhesPacote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjb3RlXERldGFsaGVzUGFjb3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Pedido/CompraEfetuada.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENvbXByYUVmZXR1YWRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Pedido/Pagamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFBhZ2FtZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Pedido/RevisarCompra.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFJldmlzYXJDb21wcmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/Documents/SinaisPeloMundo/SinaisPeloMundo/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-nymwhhbtl7
