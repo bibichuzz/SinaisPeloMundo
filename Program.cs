@@ -5,20 +5,27 @@ using SinaisPeloMundo.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 Render usa PORT
+// 🔥 Render PORT
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// Add services
+// Services
 builder.Services.AddControllersWithViews();
 
-// 🟢 SQLITE FIX (mantendo /Data)
+// 🟢 SQLite PATH (runtime seguro)
 var dbFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data");
-
-// 🔥 GARANTE que a pasta existe (ESSENCIAL no Render)
 Directory.CreateDirectory(dbFolder);
 
 var dbPath = Path.Combine(dbFolder, "banco.db");
+
+// 🟡 Caminho do banco vindo do GitHub (seed inicial)
+var seedDbPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "banco.db");
+
+// 🔥 COPIA O BANCO DO GITHUB SÓ SE NÃO EXISTIR NO RUNTIME
+if (!File.Exists(dbPath) && File.Exists(seedDbPath))
+{
+    File.Copy(seedDbPath, dbPath);
+}
 
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
@@ -60,7 +67,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// ❌ NÃO usar HTTPS no Render
+// ❌ Render não precisa forçar HTTPS
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -77,7 +84,7 @@ app.MapControllerRoute(
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
 
-// 🟢 Cria/migra banco automaticamente
+// 🟢 Garante criação de tabelas (EF Core)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
