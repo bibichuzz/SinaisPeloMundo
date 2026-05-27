@@ -12,8 +12,11 @@ builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 // Add services
 builder.Services.AddControllersWithViews();
 
-// SQLite em produção precisa de caminho simples (NÃO relativo ao BaseDirectory)
-var dbPath = Path.Combine(AppContext.BaseDirectory, "banco.db");
+// 🟢 SQLITE FIX DEFINITIVO (evita banco perdido no Render)
+var dbFolder = Path.Combine(Directory.GetCurrentDirectory(), "data");
+Directory.CreateDirectory(dbFolder);
+
+var dbPath = Path.Combine(dbFolder, "banco.db");
 
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
@@ -55,8 +58,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// ❌ IMPORTANTE NO RENDER: não forçar HTTPS
-// app.UseHttpsRedirection();  ← REMOVIDO
+// ❌ NÃO usar HTTPS no Render
+// app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
@@ -72,6 +75,7 @@ app.MapControllerRoute(
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
 
+// 🟢 Garante criação do banco/tabelas
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
