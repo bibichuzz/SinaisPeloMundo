@@ -2,16 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using SinaisPeloMundo.Data;
 using SinaisPeloMundo.Helper;
 using SinaisPeloMundo.Repositorio;
-using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// IMPORTANTE: Render usa variável PORT
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
+// Add services
 builder.Services.AddControllersWithViews();
 
-// conexão com SQLite
+// SQLite em produção precisa de caminho simples (NÃO relativo ao BaseDirectory)
+var dbPath = Path.Combine(AppContext.BaseDirectory, "banco.db");
+
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlite("Data Source=Data/banco.db"));
+    options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -26,7 +31,7 @@ builder.Services.AddSession(o =>
     o.Cookie.HttpOnly = true;
     o.Cookie.IsEssential = true;
 });
-builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
@@ -44,22 +49,22 @@ var app = builder.Build();
 
 app.UseCors();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// ❌ IMPORTANTE NO RENDER: não forçar HTTPS
+// app.UseHttpsRedirection();  ← REMOVIDO
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.UseSession();
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
