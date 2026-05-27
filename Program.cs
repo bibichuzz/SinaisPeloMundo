@@ -2,50 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using SinaisPeloMundo.Data;
 using SinaisPeloMundo.Helper;
 using SinaisPeloMundo.Repositorio;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 Render PORT
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
-
-// Services
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// ===============================
-// 🟢 SQLITE SETUP (SEED + RUNTIME)
-// ===============================
+// conexão com SQLite
+var dbPath = Path.GetFullPath(
+    Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "Data", "banco.db")
+);
 
-// pasta onde o banco vai rodar no Render
-var runtimeFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data");
-Directory.CreateDirectory(runtimeFolder);
-
-// banco ativo (runtime)
-var runtimeDbPath = Path.Combine(runtimeFolder, "banco.db");
-
-// banco inicial vindo do GitHub
-var seedDbPath = Path.Combine(Directory.GetCurrentDirectory(), "DataSeed", "banco.db");
-
-// 👇 AQUI você coloca os logs
-Console.WriteLine("SEED EXISTS: " + File.Exists(seedDbPath));
-Console.WriteLine("SEED PATH: " + seedDbPath);
-Console.WriteLine("RUNTIME PATH: " + runtimeDbPath);
-
-// 🔥 copia o banco do GitHub só na primeira execução
-if (!File.Exists(runtimeDbPath) && File.Exists(seedDbPath))
-{
-    File.Copy(seedDbPath, runtimeDbPath);
-}
-
-// ===============================
-// DB CONTEXT
-// ===============================
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlite($"Data Source={runtimeDbPath}"));
+    options.UseSqlite($"Data Source={dbPath}"));
 
-// ===============================
-// DEPENDÊNCIAS
-// ===============================
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
@@ -59,7 +30,7 @@ builder.Services.AddSession(o =>
     o.Cookie.HttpOnly = true;
     o.Cookie.IsEssential = true;
 });
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
@@ -75,41 +46,29 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ===============================
-// PIPELINE
-// ===============================
 app.UseCors();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-// ❌ NÃO usar HTTPS no Render
-// app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession();
-
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
-
-// ===============================
-// MIGRATION / DB INIT
-// ===============================
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
-    db.Database.Migrate();
-}
 
 app.Run();
