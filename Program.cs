@@ -26,6 +26,11 @@ var runtimeDbPath = Path.Combine(runtimeFolder, "banco.db");
 // banco inicial vindo do GitHub
 var seedDbPath = Path.Combine(Directory.GetCurrentDirectory(), "DataSeed", "banco.db");
 
+// 👇 AQUI você coloca os logs
+Console.WriteLine("SEED EXISTS: " + File.Exists(seedDbPath));
+Console.WriteLine("SEED PATH: " + seedDbPath);
+Console.WriteLine("RUNTIME PATH: " + runtimeDbPath);
+
 // 🔥 copia o banco do GitHub só na primeira execução
 if (!File.Exists(runtimeDbPath) && File.Exists(seedDbPath))
 {
