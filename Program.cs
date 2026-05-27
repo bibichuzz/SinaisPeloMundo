@@ -12,24 +12,35 @@ builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 // Services
 builder.Services.AddControllersWithViews();
 
-// 🟢 SQLite PATH (runtime seguro)
-var dbFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data");
-Directory.CreateDirectory(dbFolder);
+// ===============================
+// 🟢 SQLITE SETUP (SEED + RUNTIME)
+// ===============================
 
-var dbPath = Path.Combine(dbFolder, "banco.db");
+// pasta onde o banco vai rodar no Render
+var runtimeFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data");
+Directory.CreateDirectory(runtimeFolder);
 
-// 🟡 Caminho do banco vindo do GitHub (seed inicial)
-var seedDbPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "banco.db");
+// banco ativo (runtime)
+var runtimeDbPath = Path.Combine(runtimeFolder, "banco.db");
 
-// 🔥 COPIA O BANCO DO GITHUB SÓ SE NÃO EXISTIR NO RUNTIME
-if (!File.Exists(dbPath) && File.Exists(seedDbPath))
+// banco inicial vindo do GitHub
+var seedDbPath = Path.Combine(Directory.GetCurrentDirectory(), "DataSeed", "banco.db");
+
+// 🔥 copia o banco do GitHub só na primeira execução
+if (!File.Exists(runtimeDbPath) && File.Exists(seedDbPath))
 {
-    File.Copy(seedDbPath, dbPath);
+    File.Copy(seedDbPath, runtimeDbPath);
 }
 
+// ===============================
+// DB CONTEXT
+// ===============================
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlite($"Data Source={dbPath}"));
+    options.UseSqlite($"Data Source={runtimeDbPath}"));
 
+// ===============================
+// DEPENDÊNCIAS
+// ===============================
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
@@ -59,6 +70,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// ===============================
+// PIPELINE
+// ===============================
 app.UseCors();
 
 if (!app.Environment.IsDevelopment())
@@ -67,7 +81,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// ❌ Render não precisa forçar HTTPS
+// ❌ NÃO usar HTTPS no Render
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -84,7 +98,9 @@ app.MapControllerRoute(
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
 
-// 🟢 Garante criação de tabelas (EF Core)
+// ===============================
+// MIGRATION / DB INIT
+// ===============================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
