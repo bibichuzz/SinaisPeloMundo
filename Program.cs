@@ -72,4 +72,10 @@ app.MapControllerRoute(
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
+    db.Database.Migrate();
+}
+
 app.Run();
