@@ -5,18 +5,15 @@ using SinaisPeloMundo.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// IMPORTANTE: Render usa variável PORT
+// Render port
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// Add services
+// Services
 builder.Services.AddControllersWithViews();
 
-// 🟢 SQLITE FIX DEFINITIVO (evita banco perdido no Render)
-var dbFolder = Path.Combine(Directory.GetCurrentDirectory(), "data");
-Directory.CreateDirectory(dbFolder);
-
-var dbPath = Path.Combine(dbFolder, "banco.db");
+// 🟢 SQLite apontando para a pasta /Data do seu projeto
+var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "banco.db");
 
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
@@ -58,7 +55,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// ❌ NÃO usar HTTPS no Render
+// NÃO usar HTTPS no Render
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -75,7 +72,7 @@ app.MapControllerRoute(
 
 app.MapHub<PagamentoHub>("/pagamentoHub");
 
-// 🟢 Garante criação do banco/tabelas
+// 🟢 Garante migrations (estrutura do banco)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BancoContext>();
